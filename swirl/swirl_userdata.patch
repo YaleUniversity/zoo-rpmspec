@@ -1,0 +1,11 @@
+--- swirl/swirl/R/options.R       2016-02-24 14:21:43.000000000 -0500
++++ swirl/swirl/R/options.R-b     2016-09-15 15:21:31.379846935 -0400
+@@ -8,7 +8,7 @@
+   sdd <- getOption("swirl_data_dir")
+   
+   if(is.null(sdd)){
+-    file.path(find.package("swirl"), "user_data")
++    file.path(".swirl")
+   } else {
+     sdd
+   }

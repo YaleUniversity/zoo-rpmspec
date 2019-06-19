@@ -1,0 +1,37 @@
+--- rstudio-1.1.453/src/cpp/session/CMakeLists.txt	2017-09-29 18:41:42.000000000 -0400
++++ rstudio-1.1.453/src/cpp/session/CMakeLists.txt,v	2017-11-27 20:39:22.316001181 -0500
+@@ -25,9 +25,6 @@
+ if(NOT EXISTS "${RSTUDIO_DEPENDENCIES_DIR}/common/mathjax-26")
+   message(FATAL_ERROR "Mathjax 2.6 not found (re-run install-dependencies script to install)")
+ endif()
+-if(NOT EXISTS "${RSTUDIO_DEPENDENCIES_DIR}/common/pandoc")
+-  message(FATAL_ERROR "pandoc not found (re-run install-dependencies script to install)")
+-endif()
+ 
+ # we often install embedded versions of these packages but don't do so currently
+ 
+@@ -45,13 +42,7 @@
+    set(LIBCLANG_VERSION "3.5")
+ endif()
+ set(LIBCLANG_DIR "${RSTUDIO_DEPENDENCIES_DIR}/common/libclang/${LIBCLANG_VERSION}")
+-if(NOT EXISTS "${LIBCLANG_DIR}")
+-  message(FATAL_ERROR "libclang ${LIBCLANG_VERSION} not found  (re-run install-dependencies script to install)")
+-endif()
+ set(LIBCLANG_HEADERS_DIR "${RSTUDIO_DEPENDENCIES_DIR}/common/libclang/builtin-headers")
+-if(NOT EXISTS "${LIBCLANG_HEADERS_DIR}")
+-  message(FATAL_ERROR "libclang builtin-headers not found  (re-run install-dependencies script to install)")
+-endif()
+
+
+ # include files
+@@ -516,10 +510,6 @@
+               DESTINATION  ${RSTUDIO_INSTALL_BIN}/rsclang)
+    endif()
+ 
+-   # install libclang builtin-headers
+-   install(DIRECTORY "${RSTUDIO_DEPENDENCIES_DIR}/common/libclang/builtin-headers"
+-           DESTINATION "${RSTUDIO_INSTALL_SUPPORTING}/resources/libclang")
+-
+    # install winpty on windows
+    if(WIN32)
+       install(PROGRAMS "${WINPTY_BINDIR_32}/winpty.dll"

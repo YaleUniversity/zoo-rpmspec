@@ -1,0 +1,20 @@
+--- server/plugins/DiskIO_UGens.cpp	2017-08-03 15:59:28.251396183 -0400
++++ server/plugins/DiskIO_UGens.new.cpp	2017-08-03 15:44:48.360426421 -0400
+@@ -28,6 +28,7 @@
+ 
+ #include <atomic>
+ #include <new>
++#include <functional>
+ #include <SC_Lock.h>
+ 
+ #include <boost/lockfree/queue.hpp>
+--- lang/LangPrimSource/PyrSerialPrim.cpp	2017-08-03 15:59:28.251396183 -0400
++++ lang/LangPrimSource/PyrSerialPrim.new.cpp	2017-08-03 15:44:48.360426421 -0400
+@@ -36,6 +36,7 @@
+ #include <termios.h>
+ #include <unistd.h>
+ #include <boost/atomic.hpp>
++#include <functional>
+ 
+ #include <stdexcept>
+ #include <sstream>
