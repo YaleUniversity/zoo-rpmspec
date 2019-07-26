@@ -25,12 +25,7 @@ BuildRequires:  python3dist(setuptools)
 BuildRequires:  python3dist(six) >= 1.9.0
 
 %description
-Keras Preprocessing is the data preprocessing and data augmentation module of
-the Keras deep learning library. It provides utilities for working with image
-data, text data, and sequence data.Read the documentation at: Preprocessing may
-be imported directly from an up-to-date installation of Keras: from keras
-import preprocessing Keras Preprocessing is compatible with Python 2.7-3.6 and
-is...
+Keras Preprocessing is the data preprocessing and data augmentation module of the Keras deep learning library. It provides utilities for working with image data, text data, and sequence data.Read the documentation at: Preprocessing may be imported directly from an up-to-date installation of Keras: from keras import preprocessing
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
@@ -76,5 +71,7 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/Keras_Preprocessing-%{version}-py?.?.egg-info
 
 %changelog
+* Fri Jul 26 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 1.1.0-2
+- Change %description to test COPR webhook integration.
 * Fri Jul 26 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 1.1.0-1
 - Initial package.
