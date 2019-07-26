@@ -2,7 +2,7 @@
 %global pypi_name absl-py
 
 Name:           python-%{pypi_name}
-Version:        0.4.0
+Version:        0.7.1
 Release:        1%{?dist}
 Summary:        Abseil Python Common Libraries, see
 
@@ -53,5 +53,10 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/absl_py-%{version}-py?.?.egg-info
 
 %changelog
+* Fri Jul 26 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 0.7.1-1
+- Update to 0.7.1
+
+* Wed Aug 15 2018 Grace Petegorsky <grace.petegorsky@yale.edu> - 0.4.0-1
+- Initial package.
 * Wed Aug 15 2018 Grace Petegorsky <grace.petegorsky@yale.edu> - 0.4.0-1
 - Initial package.
