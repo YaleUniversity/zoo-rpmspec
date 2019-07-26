@@ -65,7 +65,7 @@ latest code To get the latest code using git, simply type::
 %{python3_sitearch}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %changelog
-* Fri Jul 26 2018 Grace Petegorsky <grace.petegorsky@yale.edu> - 0.2.2-1
+* Fri Jul 26 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 0.2.2-1
 - Update to 0.2.2
 * Mon Apr 16 2018 Grace Petegorsky <grace.petegorsky@yale.edu> - 0.2.0-1
 - Initial package.
