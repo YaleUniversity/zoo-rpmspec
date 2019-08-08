@@ -2,7 +2,7 @@
 %global pypi_name Keras-Applications
 
 Name:           python-%{pypi_name}
-Version:        1.0.8
+Version:        1.0.6
 Release:        1%{?dist}
 Summary:        Reference implementations of popular deep learning models
 
@@ -62,11 +62,13 @@ rm -rf %{pypi_name}.egg-info
 %{__python3} setup.py test
 
 %files -n python3-%{pypi_name}
-%license LICENSE
+# %license LICENSE
 %doc README.md
 %{python3_sitelib}/keras_applications
 %{python3_sitelib}/Keras_Applications-%{version}-py?.?.egg-info
 
 %changelog
+* Thu Aug 08 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 1.0.6-1
+- Downgrade to 1.0.6 for tensorflow.
 * Fri Jul 26 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 1.0.8-1
 - Initial package.
