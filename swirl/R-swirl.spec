@@ -5,18 +5,20 @@
 %define coursesdir Courses
 
 Name:             R-%{packname}
-Version:          2.4.3
-Release:          2%{?dist}
-Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{version}.tar.gz
+Version:          2.4.4
+Release:          1%{?dist}
+Source0:          ftp://cran.r-project.org/pub/R/contrib/main/%{packname}_%{version}.tar.gz
+# let's also bundle R-swirl_courses: https://github.com/swirldev/swirl_courses
+# Source1:          swirl_courses.30b1b1e.tar.xz
 Patch0:           swirl_userdata.patch
 License:          GPLv2+
-URL:              https://cran.r-project.org/web/packages/swirl/index.html
+URL:              http://cran.r-project.org/src/contrib
 Group:            Applications/Engineering
 Summary:          Interactive learning environment for R
-BuildRequires:    R-devel, unzip
-BuildRequires:    R-RCurl, R-digest, R-testthat, R-stringr, R-httr, R-yaml, R-R6
+BuildRequires:    R-devel
+BuildRequires:    R-RCurl, R-digest, R-testthat, R-stringr, R-httr, R-yaml
 BuildRoot:        %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires:         R-RCurl, R-digest, R-testthat, R-stringr, R-httr, R-yaml, R-R6
+Requires:         R-RCurl, R-digest, R-testthat, R-stringr, R-httr, R-yaml
 
 %description
 R interface to swirl. swirl is a software package for the R programming
@@ -26,7 +28,7 @@ self-paced lessons in data science and R programming.
 
 %prep
 %setup -q -c -n %{packname}
-curl -Lo swirl_courses.zip https://github.com/swirldev/swirl_courses/archive/master.zip
+# cp -p %SOURCE1 .
 %patch0 -p1
 
 %build
@@ -34,18 +36,19 @@ curl -Lo swirl_courses.zip https://github.com/swirldev/swirl_courses/archive/mas
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_libdir}/R/library
+cp -r %{_builddir}/%{packname}/%{packname} $RPM_BUILD_ROOT%{_libdir}/R/library/
 %{_bindir}/R CMD INSTALL -l $RPM_BUILD_ROOT%{_libdir}/R/library %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -rf $RPM_BUILD_ROOT%{_libdir}/R/library/R.css
 
+# don't conflict with R-swirl_courses package
+#rm -rf $RPM_BUILD_ROOT%{_libdir}/R/library/%{packname}/Courses
+
 # copy in courses
-unzip -d %{buildroot}/tmp %{_builddir}/%{packname}/swirl_courses.zip
-rm -rf %{buildroot}%{_libdir}/R/library/%{packname}/%{coursesdir}
-mv %{buildroot}/tmp/swirl_courses-master %{buildroot}%{_libdir}/R/library/%{packname}/%{coursesdir}
-rm %{buildroot}%{_libdir}/R/library/%{packname}/%{coursesdir}/.gitignore
+# tar -xf  %{_builddir}/%{packname}/swirl_courses.30b1b1e.tar.xz -C %{buildroot}%{_libdir}/R/library/%{packname}/%{coursesdir}
 
 %check
-# needed to pass the test-encoding
+# needed to pass the test-encoding.R#27
 export LC_ALL="en_US.UTF-8"
 %{_bindir}/R CMD check %{packname}
 
@@ -64,18 +67,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/R/library/%{packname}/R
 %{_libdir}/R/library/%{packname}/help
 %{_libdir}/R/library/%{packname}/test/
-%{_libdir}/R/library/%{packname}/%{coursesdir}
+%{_libdir}/R/library/%{packname}/Courses/
 
 %changelog
-* Mon Apr 02 2018 David Goerger - 2.4.3-2
-- update bundled courses to commit ac5c6142b7a51698c16fe8587222284779d66122
-
-* Sat Jun 10 2017 David Goerger - 2.4.3-1
+* Sat Jun 10 2017 David Goerger <david.goerger@yale.edu> - 2.4.3-1
 - update to 2.4.3
 
-* Wed Sep 07 2016 David Goerger - 2.4.2-2
+* Wed Sep 07 2016 David Goerger <its-sa@yale.edu> 2.4.2-2
 - update to 2.4.2
 - note that the test suite only passes with LC_ALL="en_US.UTF-8"
 
-* Tue Jul 26 2016 David Goerger - 2.2.21-1
+* Tue Jul 26 2016 David Goerger <its-sa@yale.edu> 2.2.21-1
 - initial package creation
