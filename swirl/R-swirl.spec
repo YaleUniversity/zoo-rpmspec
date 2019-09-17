@@ -70,6 +70,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/R/library/%{packname}/Courses/
 
 %changelog
+* Tue Sep 17 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 2.4.4-1
+- update to 2.4.4
+
 * Sat Jun 10 2017 David Goerger <david.goerger@yale.edu> - 2.4.3-1
 - update to 2.4.3
 
