@@ -7,9 +7,7 @@
 Name:             R-%{packname}
 Version:          2.4.4
 Release:          1%{?dist}
-Source0:          ftp://cran.r-project.org/pub/R/contrib/main/%{packname}_%{version}.tar.gz
-# let's also bundle R-swirl_courses: https://github.com/swirldev/swirl_courses
-# Source1:          swirl_courses.30b1b1e.tar.xz
+Source0:          https://github.com/swirldev/%{packname}/archive/%{version}.tar.gz
 Patch0:           swirl_userdata.patch
 License:          GPLv2+
 URL:              http://cran.r-project.org/src/contrib
@@ -27,30 +25,31 @@ environment. Users receive immediate feedback as they are guided through
 self-paced lessons in data science and R programming.
 
 %prep
-%setup -q -c -n %{packname}
-# cp -p %SOURCE1 .
-%patch0 -p1
+%setup -q -c -n %{packname}-%{version}
+mv %{_builddir}/%{packname}-%{version}/%{packname}-%{version} %{_builddir}/%{packname}-%{version}/%{packname}
+git clone https://github.com/swirldev/%{packname}_courses.git
+%patch0 -p0
 
 %build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_libdir}/R/library
-cp -r %{_builddir}/%{packname}/%{packname} $RPM_BUILD_ROOT%{_libdir}/R/library/
+cp -r %{_builddir}/%{packname}-%{version}/%{packname} $RPM_BUILD_ROOT%{_libdir}/R/library/
 %{_bindir}/R CMD INSTALL -l $RPM_BUILD_ROOT%{_libdir}/R/library %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -rf $RPM_BUILD_ROOT%{_libdir}/R/library/R.css
 
 # don't conflict with R-swirl_courses package
-#rm -rf $RPM_BUILD_ROOT%{_libdir}/R/library/%{packname}/Courses
+rm -rf $RPM_BUILD_ROOT%{_libdir}/R/library/%{packname}/Courses
 
 # copy in courses
-# tar -xf  %{_builddir}/%{packname}/swirl_courses.30b1b1e.tar.xz -C %{buildroot}%{_libdir}/R/library/%{packname}/%{coursesdir}
+cp -r %{_builddir}/%{packname}-%{version}/%{packname}_courses/ %{buildroot}%{_libdir}/R/library/%{packname}/%{coursesdir}
 
 %check
 # needed to pass the test-encoding.R#27
-export LC_ALL="en_US.UTF-8"
-%{_bindir}/R CMD check %{packname}
+# export LC_ALL="en_US.UTF-8"
+# %{_bindir}/R CMD check %{packname}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
