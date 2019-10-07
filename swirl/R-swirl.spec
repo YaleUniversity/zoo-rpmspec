@@ -15,6 +15,7 @@ Group:            Applications/Engineering
 Summary:          Interactive learning environment for R
 BuildRequires:    R-devel
 BuildRequires:    R-RCurl, R-digest, R-testthat, R-stringr, R-httr, R-yaml
+BuildRequires:    git-core
 BuildRoot:        %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires:         R-RCurl, R-digest, R-testthat, R-stringr, R-httr, R-yaml
 
