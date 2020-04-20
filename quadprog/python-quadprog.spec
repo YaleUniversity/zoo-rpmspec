@@ -14,6 +14,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3dist(cython)
 BuildRequires:  python3dist(setuptools)
 BuildRequires:  python3dist(setuptools) >= 18.0
+BuildRequires:  gcc
 
 %description
 Minimize 1/2 x^T G x - a^T xSubject to C.T x > bThis routine uses the the
@@ -40,7 +41,6 @@ rm -rf %{pypi_name}.egg-info
 
 %build
 %py3_build
-BuildDepends: gcc
 
 %install
 %py3_install
