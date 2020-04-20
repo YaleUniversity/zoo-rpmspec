@@ -23,17 +23,9 @@ Goldfarb/Idnani dual algorithm [1].References - 1) D. Goldfarb and A. Idnani
 (1983). A numerically stable dual method for solving strictly convex quadratic
 programs. Mathematical Programming, 27, 1-33.
 
-%package -n     python-%{pypi_name}
+%package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
-Requires:       python3dist(cython)
-%description -n python3-%{pypi_name}
-Minimize 1/2 x^T G x - a^T xSubject to C.T x > bThis routine uses the the
-Goldfarb/Idnani dual algorithm [1].References - 1) D. Goldfarb and A. Idnani
-(1983). A numerically stable dual method for solving strictly convex quadratic
-programs. Mathematical Programming, 27, 1-33.
-
 
 %prep
 %autosetup -n %{pypi_name}-%{version}
@@ -46,7 +38,7 @@ rm -rf %{pypi_name}.egg-info
 %install
 %py3_install
 
-%files -n python-%{pypi_name}
+%files 
 %doc README.md
 %{python3_sitearch}/quadprog.cpython-37m-x86_64-linux-gnu.so
 %{python3_sitearch}/%{pypi_name}-%{version}-py?.?.egg-info
