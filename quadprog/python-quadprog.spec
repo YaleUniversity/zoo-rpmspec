@@ -23,7 +23,7 @@ Goldfarb/Idnani dual algorithm [1].References - 1) D. Goldfarb and A. Idnani
 (1983). A numerically stable dual method for solving strictly convex quadratic
 programs. Mathematical Programming, 27, 1-33.
 
-%package -n     python3-%{pypi_name}
+%package -n     python-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
@@ -46,7 +46,7 @@ rm -rf %{pypi_name}.egg-info
 %install
 %py3_install
 
-%files -n python3-%{pypi_name}
+%files -n python-%{pypi_name}
 %doc README.md
 %{python3_sitearch}/quadprog.cpython-37m-x86_64-linux-gnu.so
 %{python3_sitearch}/%{pypi_name}-%{version}-py?.?.egg-info
