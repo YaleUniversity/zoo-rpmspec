@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 
 Name:		  zotero
-Version:	5.0.73
+Version:	5.0.88
 Release:	1%{?dist}
 Summary:	Collect, organize, cite, and share research sources
 
@@ -39,6 +39,8 @@ install -Dm644 %{buildroot}/%{_libdir}/%{name}/chrome/icons/default/default256.p
 
 
 %changelog
+* Thu Jun 25 2020 Bugzy Little <bugzylittle@gmail.com> - 5.0.88-1
+- Upgrade to 5.0.88
 * Mon Aug 05 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 5.0.73-1
 - Upgrade to 5.0.73
 * Thu Aug 17 2017 David Goerger <david.goerger@yale.edu> - 5.0.12-1
