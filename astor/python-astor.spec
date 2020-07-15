@@ -2,7 +2,7 @@
 %global pypi_name astor
 
 Name:           python-%{pypi_name}
-Version:        0.8.0
+Version:        0.8.1
 Release:        1%{?dist}
 Summary:        Read/rewrite/write Python ASTs
 
