@@ -54,3 +54,4 @@ rm -rf %{pypi_name}.egg-info
 %changelog
 * Fri Jul 26 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 0.8.0-1
 - Initial package.
+* Tue Jul 14 2020 Adil Mahmood  <adil.mahmood@yale.edu> - 0.8.1
