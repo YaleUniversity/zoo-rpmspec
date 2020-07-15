@@ -2,7 +2,7 @@
 %global pypi_name google-pasta
 
 Name:           python-%{pypi_name}
-Version:        0.1.7
+Version:        0.2.0
 Release:        1%{?dist}
 Summary:        pasta is an AST-based Python refactoring library
 
@@ -13,7 +13,7 @@ BuildArch:      noarch
  
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(setuptools)
-BuildRequires:  python3-six >= 1.11.0
+BuildRequires:  python3-six 
 %description
 
 
@@ -47,3 +47,4 @@ rm -rf %{pypi_name}.egg-info
 %changelog
 * Fri Jul 26 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 0.1.7-1
 - Initial package.
+* Fri Jul 14 2020 Adil Mahmood <adil.mahmood@yale.edu> - 0.2.0
