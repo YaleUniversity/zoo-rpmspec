@@ -2,7 +2,7 @@
 %global pypi_name xlsx2csv
 
 Name:           python-%{pypi_name}
-Version:        0.7.6
+Version:        0.7.7
 Release:        1%{?dist}
 Summary:        xlsx to csv converter
 
@@ -73,6 +73,8 @@ INCLUDE_SHEET_PATTERN] ...
 %{python3_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %changelog
+* Wed Jul 15 2020 Adil Mahmood - 0.7.7
+- Update to 0.7.7
 * Mon Aug 05 2019 Grace Petegorsky - 0.7.6-1
 - Update to 0.7.6
 * Wed Jan 25 2017 David Goerger - 0.7.2-1
