@@ -16,6 +16,7 @@ BuildRequires:  python3dist(setuptools)
 BuildRequires:  python3dist(setuptools) >= 18
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
+BuildRequires:  python3-Cython
 
 %description
 Minimize 1/2 x^T G x - a^T xSubject to C.T x > bThis routine uses the the
