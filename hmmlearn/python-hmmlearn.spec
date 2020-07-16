@@ -2,7 +2,7 @@
 %global pypi_name hmmlearn
 
 Name:           python-%{pypi_name}
-Version:        0.2.2
+Version:        0.2.3
 Release:        1%{?dist}
 Summary:        Hidden Markov Models in Python with scikit-learn like API
 
@@ -65,6 +65,8 @@ latest code To get the latest code using git, simply type::
 %{python3_sitearch}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %changelog
+* Wed Jul 14 2020 Adil Mahmood  <adil.mahmood@yale.edu> - 0.2.3
+- Update to 0.2.3
 * Fri Jul 26 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 0.2.2-1
 - Update to 0.2.2
 * Mon Apr 16 2018 Grace Petegorsky <grace.petegorsky@yale.edu> - 0.2.0-1
