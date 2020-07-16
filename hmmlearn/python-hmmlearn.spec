@@ -14,6 +14,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-scikit-learn >= 0.16
 BuildRequires:  python3-pytest
 BuildRequires:  python3-setuptools
+BuildRequires:  python3-numpy
 
 %description
 hmmlearn |travis| |appveyor| .. |travi .. |appveyo hmmlearn is a set of
@@ -65,7 +66,7 @@ latest code To get the latest code using git, simply type::
 %{python3_sitearch}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %changelog
-* Wed Jul 14 2020 Adil Mahmood  <adil.mahmood@yale.edu> - 0.2.3
+* Wed Jul 15 2020 Adil Mahmood  <adil.mahmood@yale.edu> - 0.2.3
 - Update to 0.2.3
 * Fri Jul 26 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 0.2.2-1
 - Update to 0.2.2
