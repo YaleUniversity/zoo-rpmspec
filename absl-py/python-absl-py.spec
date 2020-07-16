@@ -2,7 +2,7 @@
 %global pypi_name absl-py
 
 Name:           python-%{pypi_name}
-Version:        0.9.0-1
+Version:        0.9.0
 Release:        1%{?dist}
 Summary:        Abseil Python Common Libraries, see
 
