@@ -2,7 +2,7 @@
 %global pypi_name qpsolvers
 
 Name:           python-%{pypi_name}
-Version:        1.1
+Version:        1.4
 Release:        1%{?dist}
 Summary:        Quadratic Programming solvers for Python with a unified API
 
@@ -38,5 +38,6 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %changelog
+* Wed Jul 15 2020 Mahmood Adil - 1.4-1
 * Mon Apr 20 2020 Mahmood Adil - 1.1-1
 - Initial package.
