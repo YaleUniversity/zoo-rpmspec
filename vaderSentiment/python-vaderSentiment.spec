@@ -2,7 +2,7 @@
 %global pypi_name vaderSentiment
 
 Name:           python-%{pypi_name}
-Version:        3.2.1
+Version:        3.3.2
 Release:        1%{?dist}
 Summary:        VADER Sentiment Analysis. VADER (Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social media, and works well on texts from other domains
 
@@ -53,5 +53,6 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %changelog
+* Wed Jul 15 2020 Adil Mahmood <adil.mahmood@yale.edu> - 3.3.2
 * Tue Feb 12 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 3.2.1-1
 - Initial package.
