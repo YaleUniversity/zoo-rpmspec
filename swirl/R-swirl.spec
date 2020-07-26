@@ -70,6 +70,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/R/library/%{packname}/Courses/
 
 %changelog
+* Sat Jul 26 2020 Adil Mahmood  <adil.mahmood@yale.edu> - 2.4.5
+- update to 2.4.5
+
 * Tue Sep 17 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 2.4.4-1
 - update to 2.4.4
 
