@@ -5,7 +5,7 @@
 %define coursesdir Courses
 
 Name:             R-%{packname}
-Version:          2.4.4
+Version:          2.4.5
 Release:          1%{?dist}
 Source0:          https://github.com/swirldev/%{packname}/archive/%{version}.tar.gz
 Patch0:           swirl_userdata.patch
