@@ -61,9 +61,9 @@ Documentation for hmmlearn
 %build
 %py3_build
 # generate html docs
-#PYTHONPATH=${PWD} sphinx-build-3 doc/source html
+PYTHONPATH=%{buildroot} sphinx-build-3 doc/source html
 # remove the sphinx-build leftovers
-#rm -rf html/.{doctrees,buildinfo}
+rm -rf html/.{doctrees,buildinfo}
 
 %install
 %py3_install
