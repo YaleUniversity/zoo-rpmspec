@@ -74,8 +74,6 @@ Documentation for hmmlearn
 %files -n python3-%{pypi_name}
 %license LICENSE.txt
 %doc README.rst examples/README.txt
-#%{python3_sitearch}/%{pypi_name}
-#%{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %files -n python-%{pypi_name}-doc
 %doc html
