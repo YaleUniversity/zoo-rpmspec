@@ -1,7 +1,7 @@
 %global __strip /bin/true
 
 Name:    bazel
-Version: 0.25.2
+Version: 4.1.0
 Release: 0%{?dist}
 Summary: Build and test software of any size, quickly and reliably.
 
@@ -39,6 +39,8 @@ mv %{_builddir}/%{name}/lib/%{name}/bin/%{name}-real %{buildroot}%{_bindir}/
 %{_bindir}/%{name}-real
 
 %changelog
+* Thu Jul 01 2021 Michael Dunlap <michael.dunlap@yale.edu> -
+- build new release 4.1.0
 * Wed Aug 07 2019 Grace Petegorsky <grace.petegorsky@yale.edu> -
 * 0.25.2-1
 - Initial package.
