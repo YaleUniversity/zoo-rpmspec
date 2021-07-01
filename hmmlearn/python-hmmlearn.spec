@@ -1,71 +1,83 @@
-# Created by pyp2rpm-3.2.3
+# Created by pyp2rpm-3.3.6
 %global pypi_name hmmlearn
 
 Name:           python-%{pypi_name}
-Version:        0.2.2
+Version:        0.2.5
 Release:        1%{?dist}
 Summary:        Hidden Markov Models in Python with scikit-learn like API
 
 License:        new BSD
 URL:            https://github.com/hmmlearn/hmmlearn
-Source0:        https://files.pythonhosted.org/packages/source/h/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
- 
+Source0:        %{pypi_name}-%{version}.tar.gz
+BuildArch:      noarch
+
 BuildRequires:  python3-devel
-BuildRequires:  python3-scikit-learn >= 0.16
-BuildRequires:  python3-pytest
-BuildRequires:  python3-setuptools
+BuildRequires:  python3dist(cython)
+BuildRequires:  python3dist(matplotlib)
+BuildRequires:  python3dist(numpy) >= 1.10
+BuildRequires:  python3dist(numpy) >= 1.10
+BuildRequires:  python3dist(pillow)
+BuildRequires:  python3dist(pytest)
+BuildRequires:  python3dist(scikit-learn) >= 0.16
+BuildRequires:  python3dist(scipy) >= 0.19
+BuildRequires:  python3dist(setuptools)
+BuildRequires:  python3dist(setuptools-scm) >= 3.3
+BuildRequires:  python3dist(sphinx)
+BuildRequires:  python3dist(sphinx-gallery)
+BuildRequires:  python3dist(sphinx)
 
 %description
-hmmlearn |travis| |appveyor| .. |travi .. |appveyo hmmlearn is a set of
-algorithms for **unsupervised** learning and inference of Hidden Markov Models.
-For supervised learning learning of HMMs and similar models see seqlearn < the
-latest code To get the latest code using git, simply type::
+| |GitHub| |PyPI| | |Read the Docs| |Azure Pipelines| |CodeCov|.. |GitHub| ..
+|PyPI| .. |Read the Docs| .. |Azure Pipelines| :target:
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
- 
-Requires:       python3-numpydoc
-Requires:       python3-scikit-learn >= 0.16
-Requires:       python3-scikit-learn >= 0.16
-Requires:       python3-matplotlib
-Requires:       python3-pillow
-Requires:       python3-pytest
-Requires:       python3-sphinx
-Requires:       python3-sphinx-gallery
-%description -n python3-%{pypi_name}
-hmmlearn |travis| |appveyor| .. |travi .. |appveyo hmmlearn is a set of
-algorithms for **unsupervised** learning and inference of Hidden Markov Models.
-For supervised learning learning of HMMs and similar models see seqlearn < the
-latest code To get the latest code using git, simply type::
 
+Requires:       python3dist(matplotlib)
+Requires:       python3dist(numpy) >= 1.10
+Requires:       python3dist(pillow)
+Requires:       python3dist(pytest)
+Requires:       python3dist(scikit-learn) >= 0.16
+Requires:       python3dist(scipy) >= 0.19
+Requires:       python3dist(setuptools)
+Requires:       python3dist(sphinx)
+Requires:       python3dist(sphinx-gallery)
+%description -n python3-%{pypi_name}
+| |GitHub| |PyPI| | |Read the Docs| |Azure Pipelines| |CodeCov|.. |GitHub| ..
+|PyPI| .. |Read the Docs| .. |Azure Pipelines| :target:
+
+%package -n python-%{pypi_name}-doc
+Summary:        hmmlearn documentation
+%description -n python-%{pypi_name}-doc
+Documentation for hmmlearn
 
 %prep
 %autosetup -n %{pypi_name}-%{version}
-# Correct 'sklearn' to 'scikit-learn' (package name on Fedora)
-# %patch0 -p0 -R
 
 %build
 %py3_build
+# generate html docs
+PYTHONPATH=${PWD} sphinx-build-3 doc/source html
+# remove the sphinx-build leftovers
+rm -rf html/.{doctrees,buildinfo}
 
 %install
-# Must do the subpackages' install first because the scripts in /usr/bin are
-# overwritten with every setup.py install.
 %py3_install
-
-
 
 %check
 %{__python3} setup.py test
 
 %files -n python3-%{pypi_name}
 %license LICENSE.txt
-%doc README.rst
-%{python3_sitearch}/%{pypi_name}
-%{python3_sitearch}/%{pypi_name}-%{version}-py?.?.egg-info
+%doc README.rst examples/README.txt
+%{python3_sitelib}/%{pypi_name}
+%{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
+
+%files -n python-%{pypi_name}-doc
+%doc html
+%license LICENSE.txt
 
 %changelog
-* Fri Jul 26 2019 Grace Petegorsky <grace.petegorsky@yale.edu> - 0.2.2-1
-- Update to 0.2.2
-* Mon Apr 16 2018 Grace Petegorsky <grace.petegorsky@yale.edu> - 0.2.0-1
+*  - 0.2.5-1
 - Initial package.
