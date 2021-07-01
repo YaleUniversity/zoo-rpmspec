@@ -15,7 +15,7 @@ BuildArch:      x86_64
 BuildRequires:  gcc
 BuildRequires:  redhat-rpm-config
 BuildRequires:  python3-devel
-BuildRequires:  python3dist(Cython)
+BuildRequires:  python3dist(cython)
 BuildRequires:  python3dist(matplotlib)
 BuildRequires:  python3dist(numpy) >= 1.10
 BuildRequires:  python3dist(numpy) >= 1.10
@@ -24,7 +24,7 @@ BuildRequires:  python3dist(pytest)
 BuildRequires:  python3dist(scikit-learn) >= 0.16
 BuildRequires:  python3dist(scipy) >= 0.19
 BuildRequires:  python3dist(setuptools)
-BuildRequires:  python3dist(setuptools_scm) >= 3.3
+BuildRequires:  python3dist(setuptools-scm) >= 3.3
 BuildRequires:  python3dist(sphinx)
 BuildRequires:  python3dist(sphinx-gallery)
 BuildRequires:  python3dist(sphinx)
