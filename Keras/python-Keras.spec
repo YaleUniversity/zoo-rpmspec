@@ -8,7 +8,7 @@ Summary:        Deep Learning for humans
 
 License:        MIT
 URL:            https://github.com/keras-team/keras
-Source0:        https://files.pythonhosted.org/packages/source/h/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:        https://files.pythonhosted.org/packages/df/1d/46fbcf446b5fa42aff723124fb10bc900e542389e7d7574b0c5466e1ffbc/Keras-2.4.3.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python3-devel

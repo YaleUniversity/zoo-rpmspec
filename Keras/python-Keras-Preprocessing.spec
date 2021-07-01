@@ -8,7 +8,7 @@ Summary:        Easy data preprocessing and data augmentation for deep learning 
 
 License:        MIT
 URL:            https://github.com/keras-team/keras-preprocessing
-Source0:        https://files.pythonhosted.org/packages/source/h/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:        https://files.pythonhosted.org/packages/5e/f1/b44337faca48874333769a29398fe4666686733c8880aa160b9fd5dfe600/Keras_Preprocessing-1.1.2.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
