@@ -1,4 +1,4 @@
-i# Created by pyp2rpm-3.3.6
+# Created by pyp2rpm-3.3.6
 %global pypi_name hmmlearn
 
 Name:           python-%{pypi_name}
