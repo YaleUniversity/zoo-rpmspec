@@ -61,9 +61,9 @@ Documentation for hmmlearn
 %build
 %py3_build
 # generate html docs
-PYTHONPATH=/builddir/build/BUILD/hmmlearn-0.2.5 sphinx-build-3 doc/source html
+#PYTHONPATH=/builddir/build/BUILD/hmmlearn-0.2.5 sphinx-build-3 doc/source html
 # remove the sphinx-build leftovers
-rm -rf html/.{doctrees,buildinfo}
+#rm -rf html/.{doctrees,buildinfo}
 
 %install
 %py3_install
@@ -74,8 +74,8 @@ rm -rf html/.{doctrees,buildinfo}
 %files -n python3-%{pypi_name}
 %license LICENSE.txt
 %doc README.rst examples/README.txt
-%{python3_sitearch}/%{pypi_name}
-%{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
+#%{python3_sitearch}/%{pypi_name}
+#%{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %files -n python-%{pypi_name}-doc
 %doc html
