@@ -1,14 +1,14 @@
 %global pypi_name tensorflow
 
 Name:           python-%{pypi_name}
-Version:        1.14.0
-Release:        2%{?dist}
+Version:        2.4.2
+Release:        1%{?dist}
 Summary:        TensorFlow helps the tensors flow
 
 License:        Apache 2.0
 URL:            http://tensorflow.org/
 # https://www.tensorflow.org/install/install_linux#the_url_of_the_tensorflow_python_package
-Source0:        https://storage.googleapis.com/tensorflow/linux/cpu/%{pypi_name}-%{version}-cp37-cp37m-linux_x86_64.whl
+Source0:        https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.4.2.tar.gz
 BuildArch:      x86_64
  
 BuildRequires:  python3-setuptools
@@ -64,6 +64,9 @@ rm -rf %{buildroot}/%{python3_sitelib}/external
 
 
 %changelog
+* Thu Jul 01 2021 Michael Dunlap <michael.dunlap@yale.edu> 2.4.2
+- update to 2.4.2
+
 * Fri Jul 26 2019 Grace Petegorsky <grace.petegorsky@yale.edu> 1.14.0-1
 - update to 1.14.0
 - new: /usr/bin/tf_upgrade_v2
