@@ -79,5 +79,5 @@ rm -rf html/.{doctrees,buildinfo}
 %license LICENSE.txt
 
 %changelog
-*  - 0.2.5-1
-- Initial package.
+* Thu Jul 01 2021 Michael Dunlap <michael.dunlap@yale.edu> -
+- build new release *  - 0.2.5
