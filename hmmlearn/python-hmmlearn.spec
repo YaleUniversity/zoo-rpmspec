@@ -13,6 +13,7 @@ Source0:        https://files.pythonhosted.org/packages/source/h/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  gcc
+BuildRequires:  redhat-rpm-config
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(cython)
 BuildRequires:  python3dist(matplotlib)
