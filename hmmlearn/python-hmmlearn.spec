@@ -8,7 +8,7 @@ Summary:        Hidden Markov Models in Python with scikit-learn like API
 
 License:        new BSD
 URL:            https://github.com/hmmlearn/hmmlearn
-Source0:        https://github.com/%{pypi_name}/%{pypi_name}/archive/ref/tags/%{version}.tar.gz
+Source0:        https://github.com/hmmlearn/hmmlearn/archive/ref/tags/%{version}.tar.gz
 
 BuildArch:      noarch
 
