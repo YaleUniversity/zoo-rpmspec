@@ -10,8 +10,6 @@ License:        new BSD
 URL:            https://github.com/hmmlearn/hmmlearn
 Source0:        https://github.com/%{pypi_name}/%{pypi_name}/archive/ref/tags/%{version}.tar.gz
 
-
-https://github.com/hmmlearn/hmmlearn/archive/refs/tags/0.2.5.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
