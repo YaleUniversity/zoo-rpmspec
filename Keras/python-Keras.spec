@@ -20,7 +20,7 @@ BuildRequires:  python3dist(pandas)
 BuildRequires:  python3dist(pydot) >= 1.2.4
 BuildRequires:  python3dist(pytest)
 BuildRequires:  python3dist(pytest-cov)
-BuildRequires:  python3dist(pytest-pep8)
+BuildRequires:  python3dist(pytest-flake8)
 BuildRequires:  python3dist(pytest-xdist)
 BuildRequires:  python3dist(pyyaml)
 BuildRequires:  python3dist(requests)

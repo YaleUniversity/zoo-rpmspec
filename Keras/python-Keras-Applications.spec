@@ -16,7 +16,7 @@ BuildRequires:  python3dist(h5py)
 BuildRequires:  python3dist(numpy) >= 1.9.1
 BuildRequires:  python3dist(pytest)
 BuildRequires:  python3dist(pytest-cov)
-BuildRequires:  python3dist(pytest-pep8)
+BuildRequires:  python3dist(pytest-flake8)
 BuildRequires:  python3dist(pytest-xdist)
 BuildRequires:  python3dist(setuptools)
 
