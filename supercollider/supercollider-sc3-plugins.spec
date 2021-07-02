@@ -31,13 +31,13 @@ Collection of SuperCollider plugins
 
 %build
 
-%ifarch x86_64
-# fix libdir paths for 64 bit architecture
-find . -type f -name CMakeLists.txt -exec grep "ON \"lib\"" {} \; \
-     -exec perl -p -i -e "s|ON \"lib\"|ON \"%{_lib}\"|g" {} \; -print
-find . -type f -name CMakeLists.txt -exec grep \"lib/ {} \; \
-     -exec perl -p -i -e "s|\"lib/|\"%{_lib}/|g" {} \; -print
-%endif
+#%ifarch x86_64
+## fix libdir paths for 64 bit architecture
+#find . -type f -name CMakeLists.txt -exec grep "ON \"lib\"" {} \; \
+#     -exec perl -p -i -e "s|ON \"lib\"|ON \"%{_lib}\"|g" {} \; -print
+#find . -type f -name CMakeLists.txt -exec grep \"lib/ {} \; \
+#     -exec perl -p -i -e "s|\"lib/|\"%{_lib}/|g" {} \; -print
+#%endif
 
 mkdir build
 cd build
