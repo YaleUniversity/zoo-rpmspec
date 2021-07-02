@@ -10,18 +10,15 @@
 #
 # 2018.04.07: Version-3.7.1-169-g9307b41
 #
-%define gitver 3.7.1
-%define gittag g9307b41
-%define gitrev 169
 
 Summary: Collection of SuperCollider plugins
 Name: supercollider-sc3-plugins
-Version: %{gitver}
-Release: 1%{?gitrev:.%{gitrev}}%{?gittag:.%{gittag}}%{?dist}
+Version: 3.11.1
+Release: 1%{?dist}
 License: GPL
 Group: Applications/Multimedia
 URL: http://sc3-plugins.sourceforge.net/
-Source0: sc3-plugins-src-%{gittag}.tar.gz
+Source0: https://github.com/supercollider/sc3-plugins/archive/refs/tags/Version-3.11.1.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: supercollider >= 3.5
 Packager: Fernando Lopez-Lezcano
@@ -41,7 +38,7 @@ Provides: supercollider-bbcut2 = %{version}-%{release}
 Collection of SuperCollider plugins
 
 %prep
-%setup -q -n sc3-plugins-src-%{gittag}
+%setup -q -n sc3-plugins-Version-%{version}
 
 %build
 # remove all git directories
@@ -80,6 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/SuperCollider/plugins/*
 
 %changelog
+* Fri Jul 2 2021 Michael Dunlap - 3.11.1
+- update to 3.11.1
+
 * Sat Apr 07 2018 David Goerger - 3.7.1-169-g9307b41
 - update to 3.7.1-169-g9307b41
 
