@@ -16,13 +16,13 @@ Requires: firefox
 Zotero [zoh-TAIR-oh] is a free, easy-to-use tool to help you collect, organize, cite, and share your research sources.
 
 %prep
-%autosetup -n Zotero_linux-x86_64
+%autosetup -n zotero-5.0.96.2
 
 %build
 
 %install
 mkdir -p %{buildroot}/{%{_bindir},%{_libdir}/%{name}}
-cp -r %{_builddir}/Zotero_linux-x86_64/* %{buildroot}/%{_libdir}/%{name}/
+cp -r %{_builddir}/zotero-5.0.96.2/* %{buildroot}/%{_libdir}/%{name}/
 ln -sf %{_libdir}/%{name}/zotero %{buildroot}/%{_bindir}/%{name}
 install -Dm644 %{SOURCE1} %{buildroot}/%{_datadir}/applications/%{name}.desktop
 install -Dm644 %{buildroot}/%{_libdir}/%{name}/chrome/icons/default/default16.png %{buildroot}/%{_datadir}/icons/hicolor/16x16/apps/%{name}.png
