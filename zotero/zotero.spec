@@ -7,7 +7,7 @@ Summary:	Collect, organize, cite, and share research sources
 
 License:	AGPLv3
 URL:		  https://github.com/zotero/zotero
-Source0:  https://github.com/zotero/zotero/archive/refs/tags/5.0.96.2.tar.gz
+Source0:  https://download.zotero.org/client/release/5.0.96.2/Zotero-5.0.96.2_linux-x86_64.tar.bz2
 Source1:  zotero.desktop
 
 Requires: firefox
@@ -16,7 +16,7 @@ Requires: firefox
 Zotero [zoh-TAIR-oh] is a free, easy-to-use tool to help you collect, organize, cite, and share your research sources.
 
 %prep
-%autosetup -n zotero-5.0.96.2
+%autosetup -n Zotero_linux-x86_64
 
 %build
 
