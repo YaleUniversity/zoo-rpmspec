@@ -19,21 +19,21 @@ Version: %{gitver}
 Release: 4%{?dist}
 License: GPL
 Group: Applications/Multimedia
-URL: http://sc3-plugins.sourceforge.net/
-Source0: https://zoo.cs.yale.edu/classes/mrd25/sc3-plugins-src-gfa550fb.tar.gz
+URL: https://github.com/supercollider/sc3-plugins/releases
+Source0: https://github.com/YaleUniversity/zoo-rpmspec/blob/master/supercollider/sc3-plugins-src-gfa550fb.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires: supercollider >= 3.5
+Requires: supercollider >= 3.11.1
 Packager: Fernando Lopez-Lezcano
 Distribution: Planet CCRMA
 Vendor: Planet CCRMA
 
 BuildRequires: cmake supercollider-devel fftw-devel stk-devel
 
-Obsoletes: supercollider-extras < 3.5
+Obsoletes: supercollider-extras < 3.11
 Provides: supercollider-extras = %{version}-%{release}
-Obsoletes: supercollider-beastmulchplugins < 3.5
+Obsoletes: supercollider-beastmulchplugins < 3.11
 Provides: supercollider-beastmulchplugins = %{version}-%{release}
-Obsoletes: supercollider-bbcut2 < 3.5
+Obsoletes: supercollider-bbcut2 < 3.11
 Provides: supercollider-bbcut2 = %{version}-%{release}
 
 %description
