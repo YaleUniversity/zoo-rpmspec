@@ -1,14 +1,3 @@
-# how to prepare the source...
-#
-# git clone --recursive git://github.com/supercollider/sc3-plugins.git
-# cd sc3-plugins
-# GHASH=$(git describe | awk -F'-' '{print $NF}')
-# cd ..
-#
-# mv sc3-plugins sc3-plugins-src-${GHASH}
-# tar cvzf sc3-plugins-src-${GHASH}.tar.gz sc3-plugins-src-${GHASH}
-#
-# 2018.04.07: Version-3.7.1-169-g9307b41
 #
 
 Summary: Collection of SuperCollider plugins
@@ -38,11 +27,9 @@ Provides: supercollider-bbcut2 = %{version}-%{release}
 Collection of SuperCollider plugins
 
 %prep
-%setup -q -n sc3-plugins-Version-%{version}
+%setup -q 
 
 %build
-# remove all git directories
-find . -type d -name .git -printf "\"%h/%f\"\n" | xargs rm -rf 
 
 %ifarch x86_64
 # fix libdir paths for 64 bit architecture
