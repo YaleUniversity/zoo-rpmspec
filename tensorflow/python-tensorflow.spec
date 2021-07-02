@@ -44,7 +44,7 @@ tensorflow for python3
 %build
 
 %install
-pip3 install --no-deps --disable-pip-version-check -I %{SOURCE0} --root %{buildroot} --strip-file-prefix %{buildroot}
+pip3 install --no-deps --disable-pip-version-check -I %{SOURCE0} --root %{buildroot} 
 # fix for wheel package weirdness installing to inconsistent package/directory names
 mv %{buildroot}/%{python3_sitearch}/%{pypi_name}-%{version}.dist-info %{buildroot}/%{python3_sitelib}/%{pypi_name}-%{version}.dist-info
 rm -rf %{buildroot}/%{python3_sitelib}/external
