@@ -27,7 +27,7 @@ Packager: Fernando Lopez-Lezcano
 Distribution: Planet CCRMA
 Vendor: Planet CCRMA
 
-BuildRequires: cmake supercollider-devel fftw-devel stk-devel
+BuildRequires: cmake supercollider-devel fftw-devel stk-devel gcc gcc-c++
 
 Obsoletes: supercollider-extras < 3.11
 Provides: supercollider-extras = %{version}-%{release}
