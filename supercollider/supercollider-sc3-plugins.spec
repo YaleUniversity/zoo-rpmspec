@@ -20,7 +20,7 @@ Release: 4%{?dist}
 License: GPL
 Group: Applications/Multimedia
 URL: http://sc3-plugins.sourceforge.net/
-Source0: sc3-plugins-src-%{gittag}.tar.gz
+Source0: https://zoo.cs.yale.edu/classes/mrd25/sc3-plugins-src-gfa550fb.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: supercollider >= 3.5
 Packager: Fernando Lopez-Lezcano
