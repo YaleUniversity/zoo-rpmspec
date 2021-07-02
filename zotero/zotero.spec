@@ -1,13 +1,13 @@
 %define debug_package %{nil}
 
 Name:		  zotero
-Version:	5.0.89
+Version:	5.0.96.2
 Release:	1%{?dist}
 Summary:	Collect, organize, cite, and share research sources
 
 License:	AGPLv3
 URL:		  https://github.com/zotero/zotero
-Source0:  https://download.zotero.org/client/release/%{version}/Zotero-%{version}_linux-x86_64.tar.bz2 
+Source0:  https://github.com/zotero/zotero/archive/refs/tags/5.0.96.2.tar.gz
 Source1:  zotero.desktop
 
 Requires: firefox
@@ -39,6 +39,8 @@ install -Dm644 %{buildroot}/%{_libdir}/%{name}/chrome/icons/default/default256.p
 
 
 %changelog
+* Fri Jul 2 2021 Michael Dunlap <michael.dunlap@yale.edu> - 5.0.96.2
+- upgrade to 5.0.96.2
 * Fri Aug 14 2020 Bugzy Little <bugzylittle@gmail.com> - 5.0.89-1
 - Upgrade to 5.0.89
 * Thu Jun 25 2020 Bugzy Little <bugzylittle@gmail.com> - 5.0.88-1
