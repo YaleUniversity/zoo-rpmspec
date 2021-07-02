@@ -1,13 +1,26 @@
+# how to prepare the source...
 #
+# git clone --recursive git://github.com/supercollider/sc3-plugins.git
+# cd sc3-plugins
+# GHASH=$(git describe | awk -F'-' '{print $NF}')
+# cd ..
+#
+# mv sc3-plugins sc3-plugins-src-${GHASH}
+# tar cvzf sc3-plugins-src-${GHASH}.tar.gz sc3-plugins-src-${GHASH}
+#
+# 2018.04.07: Version-3.7.1-169-g9307b41
+#
+%define gitver 3.11.1
+%define gittag gfa550fb
 
 Summary: Collection of SuperCollider plugins
 Name: supercollider-sc3-plugins
-Version: 3.11.1
-Release: 1%{?dist}
+Version: %{gitver}
+Release: 4%{?dist}
 License: GPL
 Group: Applications/Multimedia
 URL: http://sc3-plugins.sourceforge.net/
-Source0: https://github.com/supercollider/sc3-plugins/archive/refs/tags/Version-3.11.1.tar.gz
+Source0: sc3-plugins-src-%{gittag}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: supercollider >= 3.5
 Packager: Fernando Lopez-Lezcano
@@ -27,20 +40,22 @@ Provides: supercollider-bbcut2 = %{version}-%{release}
 Collection of SuperCollider plugins
 
 %prep
-%setup -q 
+%setup -q -n sc3-plugins-src-%{gittag}
 
 %build
+# remove all git directories
+find . -type d -name .git -printf "\"%h/%f\"\n" | xargs rm -rf 
 
-#%ifarch x86_64
-## fix libdir paths for 64 bit architecture
-#find . -type f -name CMakeLists.txt -exec grep "ON \"lib\"" {} \; \
-#     -exec perl -p -i -e "s|ON \"lib\"|ON \"%{_lib}\"|g" {} \; -print
-#find . -type f -name CMakeLists.txt -exec grep \"lib/ {} \; \
-#     -exec perl -p -i -e "s|\"lib/|\"%{_lib}/|g" {} \; -print
-#%endif
+%ifarch x86_64
+# fix libdir paths for 64 bit architecture
+find . -type f -name CMakeLists.txt -exec grep "ON \"lib\"" {} \; \
+     -exec perl -p -i -e "s|ON \"lib\"|ON \"%{_lib}\"|g" {} \; -print
+find . -type f -name CMakeLists.txt -exec grep \"lib/ {} \; \
+     -exec perl -p -i -e "s|\"lib/|\"%{_lib}/|g" {} \; -print
+%endif
 
 mkdir build
-cd build
+pushd build
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE=TRUE \
       -DSC_PATH=/usr/include/SuperCollider \
       -DCMAKE_INSTALL_PREFIX=%{_prefix} \
@@ -64,9 +79,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/SuperCollider/plugins/*
 
 %changelog
-* Fri Jul 2 2021 Michael Dunlap - 3.11.1
-- update to 3.11.1
-
+* Fri Jul 02 2021 Michael Dunlap <michael.dunlap@yale.edu> 3.11.1-4-gfa550fb
+- update to 3.11.1-4-gfa550fb
 * Sat Apr 07 2018 David Goerger - 3.7.1-169-g9307b41
 - update to 3.7.1-169-g9307b41
 
