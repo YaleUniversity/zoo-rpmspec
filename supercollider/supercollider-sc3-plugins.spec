@@ -40,7 +40,7 @@ find . -type f -name CMakeLists.txt -exec grep \"lib/ {} \; \
 %endif
 
 mkdir build
-pushd build
+cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE=TRUE \
       -DSC_PATH=/usr/include/SuperCollider \
       -DCMAKE_INSTALL_PREFIX=%{_prefix} \
